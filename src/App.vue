@@ -9,10 +9,22 @@
         <a v-link="{path:'/ratings'}">评论</a>
       </div>
       <div class="tab-item">
-        <a v-link="{path:'/seller'}">商家</a>
+        <a v-link="{path:'/table'}">商家</a>
       </div>
     </div>
-    <router-view></router-view>
+    <select name="" v-model="goto" >
+      <option value="goods">
+        商品
+      </option>
+      <option value="ratings">
+        评论
+      </option>
+      <option value="table">
+        商家
+      </option>
+
+    </select>
+    <router-view :data="data"></router-view>
   </div>
 </template>
 
@@ -22,16 +34,19 @@
   export default {
     data () {
       return {
-        seller: {}
+        seller: {},
+        goto: '',
+        data: [{
+          'key': 1,
+          'value': '星期一'
+        }]
       }
     },
     created () {
       this.$http.get('/api/seller').then((response) => {
         response = response.body
-        console.log(response)
         if (response.errno === ERR_OK) {
           this.seller = response.data
-          console.log(response.data)
         }
       })
     },
@@ -42,7 +57,6 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import "./common/stylus/mixin.styl"
-  
   .tab
     display: flex
     width: 100%

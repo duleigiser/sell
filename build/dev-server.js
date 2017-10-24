@@ -20,7 +20,7 @@ var seller = appData.seller;
 var goods = appData.goods;
 var ratings = appData.ratings;
 var apiRouters = express.Router();
-apiRouters.get('/seller',function(req,res){
+apiRouters.get('/seller', function(req,res){
   res.json({
     errno:0,
     data:seller
@@ -40,7 +40,6 @@ apiRouters.get('/ratings',function(req,res){
 })
 
 app.use('/api',apiRouters)
-
 
 var compiler = webpack(webpackConfig)
 

@@ -35,11 +35,11 @@
           </ul>
 
         </div>
+        <shopcart></shopcart>
     </div>
 </template>
 <script>
   import BScroll from 'better-scroll'
-  // import shopcart from 'components/shopcart/shopcart'
   import shopcart from 'components/shopcart/shopcart'
   const ERR_OK = 0
   export default {
@@ -68,7 +68,7 @@
     },
     created () {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
-      this.$http.get('./api/goods').then((res) => {
+      this.$http.get('/api/goods').then((res) => {
         res = res.body
         if (res.errno === ERR_OK) {
           this.goods = res.data
@@ -133,7 +133,7 @@
         .menu-item
           display: table
           height: 54px
-          width: 56px
+          width: 100%
           padding: 0 12px
           line-height: 14px
           &.current
@@ -178,6 +178,7 @@
           font-size: 12px
           color: rgb(147, 153,159)
           background: #f3f5f7
+          margin: 0
         .food-item
           display: flex
           margin: 18px

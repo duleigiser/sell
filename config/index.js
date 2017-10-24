@@ -18,12 +18,21 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8081,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/5433d5e4e737cbe96dcef312': 'https://cnodejs.org/api/v1/topic/'
-      //转发本机 -> 服务器 |   => https://cnodejs.org/api/v1/topic/5433d5e4e737cbe96dcef312
+      // '/table': {
+      //   target: 'http://101.200.33.47:3000',
+      //   changeOrigin: true
+      //   // header:{
+      //   //   'content-type': 'application/x-www-form-urlencoded '
+      //   // }
+      // }
+
+      // '/table': 'http://101.200.33.47:3000'
+      // 转发本机 => 服务器
+      // '/table'  => 'http://101.200.33.47:3000/table'
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

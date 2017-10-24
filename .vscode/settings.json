@@ -1,10 +1,12 @@
 {
-"vsicons.presets.angular": false,
+  "vsicons.presets.angular": false,
   "files.associations": {
     "*.vue": "vue"
   },
   "emmet.syntaxProfiles": {
     "vue-html": "html"
-  }
+  },
+  "background.enabled": true,
+  "background.useDefault": true
   //"files.trimTrailingWhitespace": true
 }
